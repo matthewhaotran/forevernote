@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <title>Forever Note</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body ng-controller="NotesController as notesController">
+  <h1>Forever Note</h1>
+
+  <hr>
+
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="note in notesController.notes">
+      <h2>{{note.title}}</h2>
+      <p><small>{{note.category}}</small></p>
+      <p>{{note.body}}</p>
+    </li>
+  </ul>
+
+</body>
+
+</html>
