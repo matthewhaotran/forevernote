@@ -9,6 +9,7 @@
 
     function NotesController(notesFactory) {
         var vm = this;
+        var notes = {};
 
         activate();
 

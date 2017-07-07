@@ -19,6 +19,7 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.5.0",
     "gulp-concat": "^2.6.1",
+    "gulp-nodemon": "^2.2.1",
     "gulp-uglify": "^3.0.0",
     "sequelize-cli": "^2.7.0"
   }
