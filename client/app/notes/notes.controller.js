@@ -9,14 +9,15 @@
 
     function NotesController(notesFactory) {
         var vm = this;
-        var notes = {};
+        vm.notes = {};
+        vm.message = "Hello"
 
         activate();
 
         function activate() {
           notesFactory
             .getAll()
-            .then(function(nots) {
+            .then(function(notes) {
               vm.notes = notes;
             });
         }

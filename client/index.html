@@ -11,15 +11,16 @@
 <body ng-controller="NotesController as notesController">
   <div class="jumbotron">
     <h1>Forever Note</h1>
+    <p>{{notesController.message}}</p>
   </div>
 
   <hr>
 
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="note in notesController.notes">
-      <h2>{{note}}</h2>
-      <p><small>{{note}}</small></p>
-      <p>{{note}}</p>
+      <h2>{{note.title}}</h2>
+      <p><small>{{note.category}}</small></p>
+      <p>{{note.body}}</p>
     </li>
   </ul>
 
