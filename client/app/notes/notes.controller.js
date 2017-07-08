@@ -12,6 +12,7 @@
         vm.notes = {};
         vm.message = "Hello";
         vm.createNote = createNote;
+        vm.remove = remove;
 
         activate();
 
@@ -30,5 +31,14 @@
               vm.notes.push(note);
             });
         };
+
+        function remove(note) {
+          var index = vm.notes.indexOf(note);
+          notesFactory
+            .remove(note)
+            .then(function(note) {
+              vm.notes.splice(index, 1);
+            });
+        }
     }
 })();
