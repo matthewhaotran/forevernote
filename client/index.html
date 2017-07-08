@@ -9,20 +9,69 @@
 </head>
 
 <body ng-controller="NotesController as notesController">
-  <div class="jumbotron">
-    <h1>Forever Note</h1>
-    <p>{{notesController.message}}</p>
+
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Forever Note</h1>
+      <p>A place to store all your important notes</p>
+    </div>
+
+    <pre>{{notesController.note | json}}</pre>
+
+    <hr>
+
+    <div class="row">
+      <form class="">
+
+        <div class="form-group col-md-6">
+          <label>Title of Note</label>
+          <input type="text" class="form-control" ng-model="notesController.note.title" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="exampleInputEmail1">Category</label>
+          <select class="form-control" ng-model="notesController.note.category" required>
+            <option value="education">Education</option>
+            <option>Motivation</option>
+            <option>To-Do</option>
+            <option>Personal</option>
+            <option>Quote</option>
+            <option>Random</option>
+            <option>Misc</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-12">
+          <label>Note Body</label>
+          <input class="form-control input-lg" type="text" ng-model="notesController.note.body" required>
+        </div>
+
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="notesController.createNote(notesController.note)">Create Note</button>
+        </div>
+      </form>
+    </div>
+
+    <hr>
+
+
+    <div class="row">
+      <ul class="list-group">
+        <div class="panel panel-info" ng-repeat="note in notesController.notes">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{note.title}}
+              <p class="pull-right">{{note.category}}</p>
+            </h3>
+          </div>
+          <div class="panel-body">
+            {{note.body}}
+          </div>
+        </div>
+      </ul>
+    </div>
+
   </div>
-
-  <hr>
-
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="note in notesController.notes">
-      <h2>{{note.title}}</h2>
-      <p><small>{{note.category}}</small></p>
-      <p>{{note.body}}</p>
-    </li>
-  </ul>
 
   <script src="bundle.js"></script>
 

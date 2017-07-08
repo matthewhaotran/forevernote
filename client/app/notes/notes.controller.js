@@ -10,7 +10,8 @@
     function NotesController(notesFactory) {
         var vm = this;
         vm.notes = {};
-        vm.message = "Hello"
+        vm.message = "Hello";
+        vm.createNote = createNote;
 
         activate();
 
@@ -20,6 +21,14 @@
             .then(function(notes) {
               vm.notes = notes;
             });
-        }
+        };
+
+        function createNote (note) {
+          notesFactory
+            .create(note)
+            .then(function(note) {
+              vm.notes.push(note);
+            });
+        };
     }
 })();
